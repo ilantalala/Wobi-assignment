@@ -2,6 +2,10 @@ const fetch = require('node-fetch');
 
 // Get current time in Germany timezone
 async function getGermanyTime() {
+  // First, calculate local Germany time as a reference
+  const localGermanyTime = calculateLocalGermanyTime();
+  console.log(`Locally calculated Germany time: ${localGermanyTime.toISOString()}`);
+  
   try {
     // Try to get time from timeapi.io with a timeout
     const controller = new AbortController();
@@ -25,53 +29,64 @@ async function getGermanyTime() {
       // Create a standardized UTC-based ISO string from the API response
       const apiDate = new Date(data.dateTime);
       console.log(`Time received from API: ${apiDate.toISOString()}`);
-      return apiDate.toISOString();
+      
+      // Compare API time with our local calculation
+      const timeDifferenceMs = Math.abs(apiDate - localGermanyTime);
+      console.log(`Time difference in milliseconds: ${timeDifferenceMs}`);
+      
+      // If the API time is within 5 minutes (300,000ms) of our calculation, use it
+      if (timeDifferenceMs <= 300000) {
+        return apiDate.toISOString();
+      } else {
+        console.log('API time differs significantly from local calculation, using local time');
+        return localGermanyTime.toISOString();
+      }
     }
     
     throw new Error('Invalid API response format');
   } catch (error) {
     console.error('Error fetching time from API:', error);
-    console.log('Using fallback time calculation method');
-    
-    // Use Date.UTC to construct a UTC date representing Berlin time
-    const now = new Date();
-    
-    // Format the current time to Berlin timezone
-    const formatter = new Intl.DateTimeFormat('en-GB', {
-      timeZone: 'Europe/Berlin',
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    });
-    
-    // Get the formatted Berlin time string
-    const berlinString = formatter.format(now).replace(',', '');
-    console.log("Berlin formatted time:", berlinString);
-    
-    // Parse the components
-    const [datePart, timePart] = berlinString.split(' ');
-    const [day, month, year] = datePart.split('/');
-    const [hour, minute, second] = timePart.split(':');
-    
-    // Create a proper date using Date.UTC to ensure consistent timezone handling
-    const berlinDate = new Date(
-      Date.UTC(
-        parseInt(year, 10),
-        parseInt(month, 10) - 1, // Month is 0-indexed in JS Date
-        parseInt(day, 10),
-        parseInt(hour, 10),
-        parseInt(minute, 10),
-        parseInt(second, 10)
-      )
-    );
-    
-    console.log(`Fallback Germany time: ${berlinDate.toISOString()}`);
-    return berlinDate.toISOString();
+    console.log('Using locally calculated time');
+    return localGermanyTime.toISOString();
   }
+}
+
+// Helper function to calculate Germany time locally
+function calculateLocalGermanyTime() {
+  const now = new Date();
+  
+  // Format the current time to Berlin timezone
+  const formatter = new Intl.DateTimeFormat('en-GB', {
+    timeZone: 'Europe/Berlin',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: false
+  });
+  
+  // Get the formatted Berlin time string
+  const berlinString = formatter.format(now).replace(',', '');
+  console.log("Berlin formatted time:", berlinString);
+  
+  // Parse the components
+  const [datePart, timePart] = berlinString.split(' ');
+  const [day, month, year] = datePart.split('/');
+  const [hour, minute, second] = timePart.split(':');
+  
+  // Create a proper date using Date.UTC to ensure consistent timezone handling
+  return new Date(
+    Date.UTC(
+      parseInt(year, 10),
+      parseInt(month, 10) - 1, // Month is 0-indexed in JS Date
+      parseInt(day, 10),
+      parseInt(hour, 10),
+      parseInt(minute, 10),
+      parseInt(second, 10)
+    )
+  );
 }
 
 // Calculate statistics for user attendance
