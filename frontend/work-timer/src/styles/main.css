@@ -1,0 +1,84 @@
+/* src/styles/main.css */
+
+/* General styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  .container {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Page transitions */
+  .fade-enter {
+    opacity: 0;
+  }
+  
+  .fade-enter-active {
+    opacity: 1;
+    transition: opacity 300ms ease-in;
+  }
+  
+  .fade-exit {
+    opacity: 1;
+  }
+  
+  .fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms ease-out;
+  }
+  
+  /* Card styling */
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    margin-bottom: 1.5rem;
+  }
+  
+  .card-header {
+    border-top-left-radius: 0.5rem !important;
+    border-top-right-radius: 0.5rem !important;
+  }
+  
+  /* Dashboard elements */
+  .stats-container .card {
+    transition: transform 0.2s ease;
+  }
+  
+  .stats-container .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  /* Login form */
+  .login-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Responsive tables */
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Loading spinner */
+  .spinner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+  }
+  
+  /* Form elements */
+  .form-control:focus, .form-select:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+  }
+  
+  /* Utility classes */
+  .min-vh-75 {
+    min-height: 75vh;
+  }

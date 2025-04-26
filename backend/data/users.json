@@ -1,22 +1,22 @@
 {
-    "admin": {
-      "username": "admin",
-      "password": "admin123",
-      "role": "admin"
-    },
-    "ilan": {
-      "username": "ilan",
-      "password": "123",
-      "role": "admin"
-    },
-    "user1": {
-      "username": "user1",
-      "password": "user123",
-      "role": "user"
-    },
-    "user2": {
-      "username": "user2",
-      "password": "user123",
-      "role": "user"
-    }
+  "admin": {
+    "username": "admin",
+    "password": "$2b$10$auVKxvnuGe7EkOhYbLKRj.vCj8htutly8Nce4KEMfZtca4rVXpmMS",
+    "role": "admin"
+  },
+  "ilan": {
+    "username": "ilan",
+    "password": "$2b$10$auVKxvnuGe7EkOhYbLKRj.vCj8htutly8Nce4KEMfZtca4rVXpmMS",
+    "role": "admin"
+  },
+  "user1": {
+    "username": "user1",
+    "password": "$2b$10$6BZg4IxIOaT1SFcwNUjO/uuLjDO7rQLULbwClZZ99/T6rpT0LxAgK",
+    "role": "user"
+  },
+  "user2": {
+    "username": "user2",
+    "password": "$2b$10$hzeRZ40aPPWSdgP9GXMeQOFN6X3xZRo2iBndaVoopH2KVhXPuJb3u",
+    "role": "user"
   }
+}

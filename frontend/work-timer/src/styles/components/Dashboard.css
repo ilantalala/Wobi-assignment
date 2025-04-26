@@ -1,0 +1,82 @@
+/* src/styles/components/Dashboard.css */
+
+.dashboard-container {
+    padding: 1.5rem 0;
+  }
+  
+  .time-display {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  
+  .time-unit {
+    font-size: 1rem;
+    vertical-align: super;
+    margin-left: 0.25rem;
+    color: #6c757d;
+  }
+  
+  .entry-exit-buttons {
+    margin: 2rem 0;
+  }
+  
+  .entry-exit-buttons .btn {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .entry-exit-buttons .btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .entry-exit-buttons .btn:active:not(:disabled) {
+    transform: translateY(-1px);
+  }
+  
+  .btn-entry {
+    background-color: #28a745;
+    border-color: #28a745;
+  }
+  
+  .btn-exit {
+    background-color: #dc3545;
+    border-color: #dc3545;
+  }
+  
+  .records-table {
+    margin-top: 2rem;
+  }
+  
+  .record-badge {
+    font-size: 0.875rem;
+    padding: 0.35em 0.65em;
+  }
+  
+  .last-activity {
+    background-color: #f8f9fa;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+  
+  .last-activity-title {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #495057;
+  }
+  
+  .last-activity-badge {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .last-activity-time {
+    font-size: 1.1rem;
+    color: #6c757d;
+  }

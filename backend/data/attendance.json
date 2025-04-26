@@ -1,22 +1,46 @@
 {
   "user1": [
     {
+      "type": "entry",
+      "timestamp": "2025-04-24T12:41:23.491Z"
+    },
+    {
       "type": "exit",
-      "timestamp": "2024-12-25T10:10:00.000Z"
+      "timestamp": "2025-04-24T12:41:29.425Z"
     },
     {
       "type": "entry",
-      "timestamp": "2024-12-25T10:05:06.3585023"
+      "timestamp": "2025-04-24T12:41:34.527Z"
+    },
+    {
+      "type": "exit",
+      "timestamp": "2025-04-24T12:41:36.095Z"
+    },
+    {
+      "type": "entry",
+      "timestamp": "2025-04-25T15:17:52.000Z"
+    },
+    {
+      "type": "exit",
+      "timestamp": "2025-04-25T15:17:57.000Z"
     }
   ],
   "user2": [
     {
+      "type": "entry",
+      "timestamp": "2025-04-24T12:42:44.923Z"
+    },
+    {
       "type": "exit",
-      "timestamp": "2024-12-25T09:26:34.5950789"
+      "timestamp": "2025-04-24T12:42:48.185Z"
     },
     {
       "type": "entry",
-      "timestamp": "2024-12-17T11:31:00.000Z"
+      "timestamp": "2025-04-24T12:42:54.031Z"
+    },
+    {
+      "type": "exit",
+      "timestamp": "2025-04-24T12:42:55.394Z"
     }
   ]
 }

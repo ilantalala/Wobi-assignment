@@ -1,17 +1,18 @@
+// src/index.js
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { BrowserRouter } from 'react-router-dom';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';  // הוסף את זה
-import reportWebVitals from './reportWebVitals';
+
+// Import global styles
+import './styles/main.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>     
+    <BrowserRouter>
       <App />
-    </BrowserRouter>    
+    </BrowserRouter>
   </React.StrictMode>
 );
-
-reportWebVitals();
